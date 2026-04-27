@@ -1,0 +1,90 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+coverage/
+*.iml
+.idea/
+
+# iOS
+ios/.symlinks/
+ios/.generated.plugins.swiftpackage
+ios/Flutter/.last_build_id
+ios/Flutter/Flutter.podspec
+ios/Flutter/GeneratedPluginRegistrant.dart
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.modulemap
+
+# Android
+android/.gradle
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/.gitignore
+android/app/debug
+android/app/profile
+android/app/release
+android/app/generated_plugin_registrant.gradle
+
+# Web
+web/plugins.js
+
+# Hive
+hive_*
+
+# OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# IDEs
+*.iml
+*.iws
+*.ipr
+*.sublime-workspace
+*.sublime-project
+
+# Python (legacy terminal prototype)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Firebase (when Phase 2 begins)
+/google-services.json
+/GoogleService-Info.plist
+
+# Misc
+.DS_Store
+thumbs.db

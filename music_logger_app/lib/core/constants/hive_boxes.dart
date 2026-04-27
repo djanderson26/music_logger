@@ -7,6 +7,7 @@ class HiveBoxes {
 
   static const String catalog = 'catalog';
   static const String reviews = 'reviews';
+  static const String ratings = 'ratings';
   static const String lists = 'lists';
   static const String favorites = 'favorites';
   static const String settings = 'settings';

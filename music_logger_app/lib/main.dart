@@ -19,6 +19,7 @@ Future<void> main() async {
   // Hive.registerAdapter(AlbumAdapter());
   await Hive.openBox(HiveBoxes.catalog);
   await Hive.openBox(HiveBoxes.reviews);
+  await Hive.openBox(HiveBoxes.ratings);
   await Hive.openBox(HiveBoxes.lists);
   await Hive.openBox(HiveBoxes.favorites);
   await Hive.openBox(HiveBoxes.settings);

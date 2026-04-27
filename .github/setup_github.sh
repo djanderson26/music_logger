@@ -68,16 +68,21 @@ create_issue() {
     return
   fi
 
-  local ms_num
-  ms_num=$(get_milestone_number "$milestone_title")
+  # Convert comma-separated labels to individual -l flags
+  local label_flags=()
+  IFS=',' read -ra LABEL_ARRAY <<< "$labels"
+  for label in "${LABEL_ARRAY[@]}"; do
+    label_flags+=("-l" "$label")
+  done
 
+  # Create issue with labels (skip milestone for now, add it via API)
   gh issue create \
     --repo "$REPO" \
     --title "$title" \
     --body "$body" \
-    --label "$labels" \
-    --milestone "$ms_num" \
-    > /dev/null
+    "${label_flags[@]}" \
+    > /dev/null 2>&1
+
   ok "issue: $title"
 }
 
