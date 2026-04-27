@@ -1,0 +1,29 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.g.dart
+*.freezed.dart
+
+# Environment variables — NEVER commit these
+.env
+*.env
+
+# Hive data files (local dev data)
+*.hive
+*.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# Generated files
+*.g.dart
+*.freezed.dart
+lib/generated_plugin_registrant.dart
