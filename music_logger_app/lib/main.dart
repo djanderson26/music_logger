@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/constants/hive_boxes.dart';
 import 'core/theme/app_theme.dart';
+import 'core/theme/theme_provider.dart';
 import 'presentation/router.dart';
 
 Future<void> main() async {
@@ -38,11 +39,13 @@ class MusicLoggerApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+    
     return MaterialApp.router(
       title: 'Music Logger',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode ?? ThemeMode.system,
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
     );
