@@ -8,6 +8,8 @@ import 'screens/lists/lists_screen.dart';
 import 'screens/profile/profile_screen.dart';
 import 'screens/album_detail/album_detail_screen.dart';
 import 'screens/artist_detail/artist_detail_screen.dart';
+import 'screens/song_detail/song_detail_screen.dart';
+import 'screens/list_detail/list_detail_screen.dart';
 import 'screens/review/review_screen.dart';
 import 'widgets/common/scaffold_with_nav_bar.dart';
 
@@ -89,10 +91,7 @@ final appRouter = GoRouter(
       name: 'song_detail',
       builder: (context, state) {
         final songId = state.pathParameters['id']!;
-        return Scaffold(
-          appBar: AppBar(title: const Text('Song')),
-          body: Center(child: Text('Song $songId')),
-        );
+        return SongDetailScreen(songId: songId);
       },
     ),
     GoRoute(
@@ -112,10 +111,7 @@ final appRouter = GoRouter(
       name: 'list_detail',
       builder: (context, state) {
         final listId = state.pathParameters['id']!;
-        return Scaffold(
-          appBar: AppBar(title: const Text('List')),
-          body: Center(child: Text('List $listId')),
-        );
+        return ListDetailScreen(listId: listId);
       },
     ),
   ],
