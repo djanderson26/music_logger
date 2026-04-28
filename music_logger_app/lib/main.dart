@@ -5,24 +5,27 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/constants/hive_boxes.dart';
 import 'core/theme/app_theme.dart';
+import 'core/theme/theme_provider.dart';
 import 'presentation/router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Load environment variables
-  await dotenv.load(fileName: '.env');
+  await dotenv.load();
 
   // Initialize Hive
   await Hive.initFlutter();
   // TODO: Register Hive adapters here
   // Hive.registerAdapter(AlbumAdapter());
-  await Hive.openBox(HiveBoxes.catalog);
-  await Hive.openBox(HiveBoxes.reviews);
-  await Hive.openBox(HiveBoxes.ratings);
-  await Hive.openBox(HiveBoxes.lists);
-  await Hive.openBox(HiveBoxes.favorites);
-  await Hive.openBox(HiveBoxes.settings);
+  await Future.wait([
+    Hive.openBox(HiveBoxes.catalog),
+    Hive.openBox(HiveBoxes.reviews),
+    Hive.openBox(HiveBoxes.ratings),
+    Hive.openBox(HiveBoxes.lists),
+    Hive.openBox(HiveBoxes.favorites),
+    Hive.openBox(HiveBoxes.settings),
+  ]);
 
   runApp(
     const ProviderScope(
@@ -36,11 +39,13 @@ class MusicLoggerApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+    
     return MaterialApp.router(
       title: 'Music Logger',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode ?? ThemeMode.system,
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
     );
