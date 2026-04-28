@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 /// API endpoint constants and configuration.
 class ApiConstants {
   ApiConstants._();
@@ -13,6 +15,11 @@ class ApiConstants {
   // Last.fm — key loaded from .env
   static const String lastFmBase = 'https://ws.audioscrobbler.com/2.0';
 
+  static String get lastFmKey => dotenv.env['LASTFM_API_KEY'] ?? '';
+
   // Genius — token loaded from .env
   static const String geniusBase = 'https://api.genius.com';
+
+  static String get geniusAccessToken =>
+      dotenv.env['GENIUS_ACCESS_TOKEN'] ?? '';
 }
