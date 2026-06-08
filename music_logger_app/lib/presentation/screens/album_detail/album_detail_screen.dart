@@ -11,12 +11,10 @@ class AlbumDetailScreen extends StatelessWidget {
   final String albumId;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(title: const Text('Album')),
       body: Center(
         child: Text('Album Detail — $albumId (coming soon)'),
       ),
     );
-  }
 }

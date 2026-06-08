@@ -35,12 +35,10 @@ final appRouter = GoRouter(
   ),
   routes: [
     ShellRoute(
-      builder: (context, state, child) {
-        return ScaffoldWithNavBar(
+      builder: (context, state, child) => ScaffoldWithNavBar(
           location: state.uri.toString(),
           child: child,
-        );
-      },
+        ),
       routes: [
         GoRoute(
           path: '/home',
