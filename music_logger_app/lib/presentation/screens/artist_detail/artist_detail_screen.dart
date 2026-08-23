@@ -11,12 +11,10 @@ class ArtistDetailScreen extends StatelessWidget {
   final String artistId;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(title: const Text('Artist')),
       body: Center(
         child: Text('Artist Detail — $artistId (coming soon)'),
       ),
     );
-  }
 }
